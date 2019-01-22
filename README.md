@@ -25,3 +25,9 @@ You need:
 Supposing you have an SSL certificate available inside `/etc/ssl/cert`, and your script is something like `/usr/bin/docker-upgrade` then as root run
 
 `http-script-runner -cert=/etc/ssl/cert/fullchain.pem -key=/etc/ssl/cert/privkey.pem -script=/usr/bin/docker-upgrade`
+
+## Bonus: alternative compilation method
+
+If you want to deploy this binary on a Debian-based system you can run this locally then scp the resulting binary file to your server:
+
+`docker run -it --rm -v $(pwd):/opt/http-script-runner golang:1.11.0-stretch go build -o /opt/http-script-runner/http-script-runner /opt/http-script-runner/http-script-runner.go`
